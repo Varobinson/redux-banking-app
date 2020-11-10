@@ -19,11 +19,13 @@ import { createStore } from 'redux';
 // reportWebVitals();
 
 console.log('Starting Banking App')
-
+//! STORE
 const defaultState = {
   balance: 0
 }
 
+
+//!ACTIONS
 const actionIncrement = {
   type: 'INCREMENT',
   payload:{
@@ -44,6 +46,8 @@ function increment(num){
     }
   }
 }
+
+//!ACTION-CREATOR
 function decrement(num){
   return{
     type: 'DECREMENT',
@@ -53,6 +57,7 @@ function decrement(num){
     }
   }
 }
+
 
 // function accountReducer(state=defaultState, action){
 //   if(action.type === 'INCREMENT'){
@@ -68,6 +73,8 @@ function decrement(num){
 //   return state
 // }
 //Example above 
+
+//!REDUCERS
 function accountReducer(state=defaultState, action){
   switch(action.type){
     case 'INCREMENT':
@@ -86,7 +93,7 @@ function accountReducer(state=defaultState, action){
 }
 
 const store = createStore(accountReducer)
-
+//? RUNS FUNCTION WHEN STATE CHANGES
 store.subscribe(()=>{
 console.log('<-----Store Updated----->')
 const state =state.getState();
